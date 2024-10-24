@@ -3,27 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redes Sociais</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ciências de Dados - Gráficos Dinâmicos</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
+    <header>
+        <h1>Ciências de Dados</h1>
+        <nav>
+            <ul>
+                <li><a href="#grafico1">Gráfico 1</a></li>
+                <li><a href="#grafico2">Gráfico 2</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="grafico1">
+            <h2>Gráfico de Linhas</h2>
+            <canvas id="lineChart"></canvas>
+        </section>
+
+        <section id="grafico2">
+            <h2>Gráfico de Barras</h2>
+            <canvas id="barChart"></canvas>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Alura Ciências de Dados</p>
+    </footer>
+
+    <script>
+        // Gráfico de Linhas
+        const lineChartContext = document.getElementById('lineChart').getContext('2d');
+        const lineChart = new Chart(lineChartContext, {
+            type: 'line',
+            data: {
+                labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio'],
+                datasets: [{
+                    label: 'Vendas',
+                    data: [10, 20, 30, 40, 50],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Gráfico de Barras
+        const barChartContext = document.getElementById('barChart').getContext('2d');
+        const barChart = new Chart(barChartContext, {
+            type: 'bar',
+            data: {
+                labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio'],
+                datasets: [{
+                    label: 'Clientes',
+                    data: [15, 25, 35, 45, 55],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
-<header>
-    <h1>Relatório das redes sociais</h1>
-    <nav>
-            <a href="index.html">Mundo</a>
-            <a href="#">Minha escola</a>
-    </nav>
-</header>
-<main class="graficos-section">
-    <section id="graficos-container" class="graficos-container">
-            <!-- crie os gráficos aqui -->
-    </section>
-</main>
-<footer>
-    <p>Desenvolvido por Gui Lima</p>
-</footer>
-</body>
